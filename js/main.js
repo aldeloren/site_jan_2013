@@ -73,3 +73,19 @@ $(document).ready(function () {
  jQuery("#home h2").fitText(2, { minFontSize: '20px', maxFontSize: '2000px' });
  jQuery("#contact h3").fitText(3, { minFontSize: '20px', maxFontSize: '2000px' });
 });
+$("#top").click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+
+var isVisible = false;
+$(window).scroll(function(){
+     var shouldBeVisible = $(window).scrollTop()>1200;
+     if (shouldBeVisible && !isVisible) {
+          isVisible = true;
+          $("#top").fadeIn('fast');
+     } else if (isVisible && !shouldBeVisible) {
+          isVisible = false;
+          $("#top").fadeOut('fast');
+    }
+});
